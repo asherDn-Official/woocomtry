@@ -20,6 +20,7 @@ app.use(cors({ origin: [`${process.env.frontUrl}`], credentials: true }));
 
 // Test route
 app.get("/test", (req, res) => {
+  console.log("Successfully tested");
   res.send("Successfully tested");
 });
 
@@ -28,7 +29,7 @@ app.post("/sendMessage/completed", async (req, res) => {
   const { id, status, billing } = req.body;
   const recipientName = billing.first_name;
   const recipientNumber = billing.phone;
-
+  console.log("completed Api is triggered");
   try {
     const existingUid = await order.findOne({ uid: id });
 
@@ -75,7 +76,7 @@ app.post("/sendMessage/pending", async (req, res) => {
   const { id, status, billing } = req.body;
   const recipientName = billing.first_name;
   const recipientNumber = billing.phone;
-
+  console.log("pending Api is triggered");
   if (status === "pending") {
     const newData = new order({ uid: id, pending: true });
 
