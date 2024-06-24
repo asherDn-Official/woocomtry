@@ -20,7 +20,7 @@ app.use(cors({ origin: [`${process.env.frontUrl}`], credentials: true }));
 
 // Test route
 app.get("/test", (req, res) => {
-  res.send("Successfully pending");
+  res.send("Successfully tested");
 });
 
 // Route to handle completed status
