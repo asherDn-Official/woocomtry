@@ -85,9 +85,9 @@ app.post("/sendMessage/pending", async (req, res) => {
       console.log("Data created:", savedData);
 
       // Wait for 1 hour
-      //await new Promise((resolve) => setTimeout(resolve, 3600000));
+      await new Promise((resolve) => setTimeout(resolve, 3600000));
       // Wait for 5 minutes (300,000 milliseconds)
-      await new Promise((resolve) => setTimeout(resolve, 300000));
+      //await new Promise((resolve) => setTimeout(resolve, 300000));
 
       const isCompleted = await order.findOne({ uid: id });
 
