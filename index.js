@@ -66,9 +66,9 @@ app.post("/sendMessage/completed", async (req, res) => {
       res.status(400).send(`Status ${status} is not valid for this operation.`);
     }
   } catch (error) {
-    console.error("Error processing request:", error);
-    res.status(500).send("Server error.",error.message);
-  }
+  console.error("Error processing request:", error);
+  res.status(500).send("Server error: " + error.message);
+}
 });
 
 // Route to handle pending status
